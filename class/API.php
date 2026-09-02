@@ -5,7 +5,7 @@ class API {
 
     }
 
-    public function search_accounts(string $query, int $limit): array
+    public function search_accounts(string $query, int $limit = 10) : array
     {
         return this->callApi('search/users?q=' . urlencode($query) . '+in:login&per_page=' . urlencode($limit));
     }
