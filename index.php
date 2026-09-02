@@ -13,7 +13,7 @@ $prints = [];
 if (isset($_POST['gh-account'])) {
     $prints[] = 'Le formulaire a bien ete recu';
     $accounts = $api->search_accounts($_POST['gh-account']); // Sécuriser contre l'injection de code !
-    if ($account === null) {
+    if ($accounts === null) {
         $print[] = 'Erreur lors de la requete api';
     } else {
         $print[] = 'Résultat de la requete:';
