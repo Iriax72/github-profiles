@@ -9,7 +9,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'AP
 $api = new API();
 $accountDetails = $api->get_account_details($login);
 if ($accountDetails === null) {
-    $error = 'Erreur lors de la requete api';
+    $error = 'Une erreur est survenue (Erreur lors de la requete api)';
 }
 
 function info(string $name, string $value) : string
