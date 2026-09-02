@@ -31,9 +31,9 @@ foreach ($prints as $print) {
 }
 ?>
 
-<form action="" method="post">
+<form action="" method="post" class="stylized-form">
     <input type="text" name="gh-account" placeholder="Rechercher un compte github">
-    <button type="submit">rechercher</button>
+    <button type="submit"><img src="assets/search-icon.png" alt="Rechercher"></button>
 </form>
 
 <?php if (!empty($accounts)): ?>
@@ -47,7 +47,7 @@ foreach ($prints as $print) {
             </li>
         <?php endforeach; ?>
     </ul>
-<? endif; ?>
+<?php endif; ?>
 
 <?php
 require 'elements' . DIRECTORY_SEPARATOR.  'footer.php';
