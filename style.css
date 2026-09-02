@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+}
+
+header, main, footer {
+    width: 100dvw;
+}
+
+main {
+    flex: 1 1;
+    background-color: black;
+    color: white;
+}
+
+.print {
+    background-color: lightgrey;
+    color: black;
+}
