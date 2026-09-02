@@ -17,9 +17,9 @@ if (isset($_POST['gh-account'])) {
         $prints[] = 'Erreur lors de la requete api';
     } else {
         $prints[] = 'Résultat de la requete:';
-        foreach ($accounts['items'] ?? [] as $account) {
+        /*foreach ($accounts['items'] ?? [] as $account) {
             $prints[] = htmlspecialchars($account['login'] ?? '', ENT_QUOTES, 'UTF-8');
-        }
+        }*/
     }
 }
 
@@ -35,6 +35,19 @@ foreach ($prints as $print) {
     <input type="text" name="gh-account" placeholder="Rechercher un compte github">
     <button type="submit">rechercher</button>
 </form>
+
+<?php if (!empty($accounts)): ?>
+    <h2>Résultats de la recherche</h2>
+    <ul>
+        <?php foreach ($accounts['items'] ?? [] as $account): ?>
+            <li>
+                <a href="details.php?login=<?= urlencode($account['login']) ?>">
+                    <?= htmlspecialchars($account['login']) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<? endif; ?>
 
 <?php
 require 'elements' . DIRECTORY_SEPARATOR.  'footer.php';

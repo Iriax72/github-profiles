@@ -10,6 +10,11 @@ class API {
         return $this->callApi('search/users?q=' . urlencode($query) . '+in:login&per_page=' . urlencode($limit));
     }
 
+    public function get_account_details(string $login) : ?array
+    {
+        return $this->callApi('users/' . urlencode($login));
+    }
+
     private function callApi(string $endpoint) : ?array
     {
         $curl = curl_init('https://api.github.com/' . $endpoint);
