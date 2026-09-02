@@ -14,10 +14,12 @@ if (isset($_POST['gh-account'])) {
     $prints[] = 'Le formulaire a bien ete recu';
     $accounts = $api->search_accounts($_POST['gh-account']); // Sécuriser contre l'injection de code !
     if ($accounts === null) {
-        $print[] = 'Erreur lors de la requete api';
+        $prints[] = 'Erreur lors de la requete api';
     } else {
-        $print[] = 'Résultat de la requete:';
-        $print[] = $account;
+        $prints[] = 'Résultat de la requete:';
+        foreach ($accounts['items'] ?? [] as $account) {
+            $prints[] = htmlspecialchars($account['login'] ?? '', ENT_QUOTES, 'UTF-8');
+        }
     }
 }
 

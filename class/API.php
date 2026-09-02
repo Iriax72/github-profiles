@@ -12,11 +12,12 @@ class API {
 
     private function callApi(string $endpoint) : ?array
     {
-        $curl = curl_init('https://api.github.com/' . urlencode($endpoint));
+        $curl = curl_init('https://api.github.com/' . $endpoint);
         
         curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_TIMEOUT => 2,
+            CURLOPT_TIMEOUT => 10,
+            CURLOPT_USERAGENT => 'github-profiles',
             // CURLOPT_CAINFO => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'certificate.ca'
         ]);
 
