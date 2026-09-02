@@ -7,7 +7,7 @@ class API {
 
     public function search_accounts(string $query, int $limit = 10) : array
     {
-        return this->callApi('search/users?q=' . urlencode($query) . '+in:login&per_page=' . urlencode($limit));
+        return $this->callApi('search/users?q=' . urlencode($query) . '+in:login&per_page=' . urlencode($limit));
     }
 
     private function callApi(string $endpoint) : ?array
@@ -20,7 +20,7 @@ class API {
             // CURLOPT_CAINFO => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'certificate.ca'
         ]);
 
-        $data = $curl_exec($curl);
+        $data = curl_exec($curl);
 
         if ($data === false || curl_getinfo($curl, CURLINFO_HTTP_CODE) !== 200) {
             return null;
