@@ -1,7 +1,16 @@
 <?php
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'API.php';
+$api = new API();
 $prints = [];
 if (isset($_POST['gh-account'])) {
     $prints[] = 'Le formulaire a bien ete recu';
+    $accounts = $api->search_accounts($_POST['gh-account']); // Sécuriser contre l'injection de code !
+    if ($account === null) {
+        $print[] = 'Erreur lors de la requete api';
+    } else {
+        $print[] = 'Résultat de la requete:';
+        $print[] = $account;
+    }
 }
 
 $title = 'Accueil';
