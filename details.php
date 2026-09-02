@@ -19,10 +19,11 @@ function info(string $name, string $value) : string
 
 $title = 'Détails du compte ' . htmlspecialchars($login, ENT_QUOTES, 'UTF-8');
 require __DIR__ . DIRECTORY_SEPARATOR . 'elements' . DIRECTORY_SEPARATOR . 'header.php';
-?>
+
 if (isset($error)) {
     echo '<div class="error">' . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . '</div>';
 }
+?>
 
 <h1><?= htmlspecialchars($login, ENT_QUOTES, 'UTF-8') ?></h1>
 <?= info('Nom', $accountDetails['name'] ?? 'Pas de nom') ?>
@@ -35,7 +36,7 @@ if (isset($error)) {
 <?= info('Nombre de following', $accountDetails['following'] ?? '0') ?>
 <?= info('Date de création', $accountDetails['created_at'] ?? 'Inconnue') ?>
 <?= info('Date de dernière activité', $accountDetails['updated_at'] ?? 'Inconnue') ?>
-<a href="https://github.com/<?= htmlspecialchars($accountDetails['html_url'] ?? '', ENT_QUOTES, 'UTF-8') ?>" target="_blank">page github de <?= htmlspecialchars($login, ENT_QUOTES, 'UTF-8') ?></a>
+<a href="<?= htmlspecialchars($accountDetails['html_url'] ?? '', ENT_QUOTES, 'UTF-8') ?>" target="_blank">page github de <?= htmlspecialchars($login, ENT_QUOTES, 'UTF-8') ?></a>
 
 <?php
 require __DIR__ . DIRECTORY_SEPARATOR . 'elements' . DIRECTORY_SEPARATOR . 'footer.php';
