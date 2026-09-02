@@ -25,7 +25,9 @@ if (isset($error)) {
 }
 ?>
 
-<h1><?= htmlspecialchars($login, ENT_QUOTES, 'UTF-8') ?></h1>
+<a href="index.php" id="back-link">&lt;=</a>
+
+<h2><?= htmlspecialchars($login, ENT_QUOTES, 'UTF-8') ?></h2>
 <?= info('Nom', $accountDetails['name'] ?? 'Pas de nom') ?>
 <?= info('Email', $accountDetails['email'] ?? 'Pas d\'email') ?>
 <?= info('Localisation', $accountDetails['location'] ?? 'Inconnue') ?>

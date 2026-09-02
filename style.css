@@ -46,15 +46,6 @@ header {
     border-bottom: 1px solid rgba(117, 224, 181, 0.12);
 }
 
-header p {
-    margin: 0;
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-}
-
 main {
     flex: 1;
     width: min(960px, calc(100% - 3rem));
@@ -215,6 +206,27 @@ main > img {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 0 0 8px rgba(117, 224, 181, 0.1), var(--shadow);
+}
+
+#back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 2.5rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+#back-link:hover {
+    border-color: var(--accent-strong);
+    color: var(--accent);
+    transform: translateX(-3px);
 }
 
 main > a {
