@@ -1,4 +1,12 @@
 <?php
+// Signaler toutes les erreurs PHP (y compris E_STRICT, E_NOTICE, E_DEPRECATED)
+error_reporting(E_ALL);
+
+// Forcer l'affichage des erreurs a l'ecran
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'API.php';
 $api = new API();
 $prints = [];
