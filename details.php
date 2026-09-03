@@ -7,11 +7,18 @@ $login = $_GET['login'];
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'API.php';
 $api = new API();
-$accountDetails = $api->get_account_details($login);
-if ($accountDetails === null) {
+try {
+    $accountDetails = $api->get_account_details($login);
+} catch (Exception $e) {
     $error = 'Une erreur est survenue (Erreur lors de la requete api)';
 }
 
+/**
+ * Affiche de manière sécurisée une info
+ * @param string $name - Le nom de l'info
+ * @param string $value - La valeur de l'info
+ * @return string - Le HTML de l'info
+ */
 function info(string $name, string $value) : string
 {
     return '<p>' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . ': ' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8') . '</p>';

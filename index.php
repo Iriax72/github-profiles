@@ -3,8 +3,11 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'AP
 $api = new API();
 
 if (isset($_POST['gh-account'])) {
-    $prints[] = 'Le formulaire a bien ete recu';
-    $accounts = $api->search_accounts($_POST['gh-account']); // Sécuriser contre l'injection de code !
+    try {
+        $accounts = $api->search_accounts($_POST['gh-account']); // Sécuriser contre l'injection de code !
+    } catch (Exception $e) {
+        echo '<p>Une erreur est survenue lors de la recherche.</p>';
+    }
 }
 
 $title = 'Accueil';
